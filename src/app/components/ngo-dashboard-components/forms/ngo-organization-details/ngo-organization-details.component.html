@@ -1,0 +1,59 @@
+<h3>Organization Details</h3>
+<form [formGroup]="organizationDetails" (submit)="saveOrganizationDetails()">
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ngo Id</mat-label>
+                <input formControlName="NgoId" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col"></div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Organization Name</mat-label>
+                <input formControlName="OrganizationName" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Chairman Name</mat-label>
+                <input formControlName="ChairmanName" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Secretary Name</mat-label>
+                <input maxlength="12" formControlName="SecretaryName" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Pan</mat-label>
+                <input formControlName="Pan" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Website URL</mat-label>
+                <input formControlName="Website" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <button mat-flat-button color="" type="reset">Reset</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="organizationDetails.invalid">Save</button>
+    </div>
+
+
+</form>

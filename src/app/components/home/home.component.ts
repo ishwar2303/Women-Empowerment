@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  dashboardLinks: boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleDashboardLinks(): void {
+    this.dashboardLinks = !this.dashboardLinks
   }
 
 }

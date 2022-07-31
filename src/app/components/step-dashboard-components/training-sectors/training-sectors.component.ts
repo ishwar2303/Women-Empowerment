@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/models/courses/course';
+import { CourseService } from 'src/app/services/courses/course.service';
 
 @Component({
   selector: 'step-training-sectors',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingSectorsComponent implements OnInit {
 
-  constructor() { }
+  courses: any[] = []
+
+  constructor(private courseService: CourseService) {
+  }
 
   ngOnInit(): void {
+    this.courseService.getCourses().subscribe((d) => {
+      let c = d
+      for(let i=0; i<c.length; i+=2) {
+        let arr = []
+        arr.push(c[i])
+        if(i+1 < c.length)
+          arr.push(c[i+1])
+        
+        this.courses.push(arr)
+      }
+    })
   }
+
+
 
 }

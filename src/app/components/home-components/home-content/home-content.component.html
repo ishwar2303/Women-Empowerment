@@ -1,11 +1,89 @@
-<div class="main-banner">
+<div class="main-banner" style="background-image: url('{{bannerImage}}');">
     <div class="overlay">
+        <div>
+        </div>
         <div>
             <h1>We are Women!</h1>
             <h2>We can do it!</h2>
         </div>
+    </div>
+    <span class="previous" (click)="previousImage()">
+        <svg  style="width:70px;height:70px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>
+    </span>
+    <span class="next" (click)="nextImage()">
+        <svg style="width:70px;height:70px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+    </span>
+    <div class="switch-banner">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!-- <p>about-us works!</p> -->
+<div style="padding-top:20px;">
+    <div class="quote">
+        <blockquote>Women account for only 19.9% of the total labor force in India.</blockquote>
+    </div>
+    <!-- <h1 style="margin:20px;color:rgb(87, 86, 86)">
+        Vision and Mission
+    </h1> -->
+    <div class="main-head">
+        <div class="subhead1">
+            <div>
+                <h2>Vision</h2>
+            </div>
+            <div class="content">
+                <p>
+                Empowered women living with dignity and contributing as equal partners in development in an environment
+                free from violence and discrimination. And, wellnurtured children with full opportunities for growth and
+                development in a safe and protective environment.
+                </p>
+            </div>
+        </div>
+        <div class="subhead2">
+            <div>
+                <h2>Mission</h2>
+            </div>
+            <div class="content">
+                <p>
+                    Promoting social and economic empowerment of women through cross-cuting policies and programmes,
+                    mainstreaming gender concerns, creating awareness about their rights and facilitating institutional
+                    and legislative support for enabling them realize their human rights and develop to their full
+                    potential. Ensuring development, care and protection of children through cross-cutting policies and
+                    programmes, spreading awareness about their rights and facilitating access to learning, nutrition,
+                    institutional and legislative support for enabling them to grow and develop to their full potential.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="mandate">
+        <div class="mandate-desc">
+            <div class="mandate-heading">
+                <h2>Mandate</h2>
+            </div>
+            <div>
+                <p>
+                The broad mandate of this organisation is to have holistic development of Women and Children. As a nodal
+                Ministry for the advancement of women and children, the Ministry formulates plans, policies and programmes;
+                enacts/ amends legislation, guides and coordinates the efforts of both governmental and non-governmental
+                organisations working in the field of Women and Child Development. Besides, playing its nodal role, the NGOs
+                implements certain innovative programmes for women and children. These programmes cover welfare and support
+                services, training for employment and income generation, awareness generation and gender sensitization.
+                These programmes play a supplementary and complementary role to the other general developmental programmes
+                in the sectors of health, education, rural development etc. All these efforts are directed to ensure that
+                women are empowered both economically and socially and thus become equal partners in national development
+                along with men.
+                </p>
+            </div>
+        </div>
         <div>
-            <h2>Find Background Image</h2>
+            <img src="../../../../assets/images/WE-Hand.png" />
         </div>
     </div>
 </div>

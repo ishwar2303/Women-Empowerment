@@ -1,0 +1,62 @@
+<h3>Contact Details</h3>
+<form [formGroup]="contactDetails" (submit)="saveContactDetails()">
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ngo Id</mat-label>
+                <input formControlName="NgoId" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contact</mat-label>
+                <input type="number" formControlName="ContactNo" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>State</mat-label>
+                <input formControlName="State" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input formControlName="City" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>District</mat-label>
+                <input formControlName="District" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Pincode</mat-label>
+                <input formControlName="Pincode" matInput >
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea formControlName="Address" matInput ></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <button mat-flat-button color="" type="reset">Reset</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="false">Save</button>
+    </div>
+</form>

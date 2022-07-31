@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TraineeApplicationService } from 'src/app/services/trainee-details/trainee-application.service';
 
 @Component({
   selector: 'app-step-status',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepStatusComponent implements OnInit {
 
-  constructor() { }
+  applicationStatus: any
+
+  constructor(private router: Router, private traineeApplicationService: TraineeApplicationService) { }
 
   ngOnInit(): void {
+    this.getApplicationStatus()
   }
 
+  getApplicationStatus(): void {
+    this.traineeApplicationService.getApplication(1).subscribe((d) => {
+      console.log(d)
+      this.applicationStatus = d
+    })
+  }
+  
 }

@@ -1,6 +1,7 @@
 .step-form {
     padding: 20px;
     margin-top: 20px;
+    min-height: 75vh;
 }
 
 .step-form > div {
@@ -12,16 +13,25 @@
 }
 
 .step-form > div > div:first-child {
-    width: 400px;
     margin-bottom: 10px;
+}
+.step-login-form {
+    width: 400px;
+}
+.step-register-form {
+    width: 500px;
 }
 
 .step-form form {
     /* border: 0.5px solid rgba(0, 0, 0, 0.4); */
     border-radius: 10px;
     padding: 20px;
-    width: 400px;
     margin: 0px 30px;
     background: white;
+}
+
+.step-heading {
+    width: 380px;
+    text-align: justify;
 }
 

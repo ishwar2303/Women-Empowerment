@@ -1,0 +1,32 @@
+nav {
+    display: flex;
+}
+
+nav a {
+    padding: 5px 10px;
+    flex: 1;
+    text-decoration: none;
+    color: rgb(178, 87, 54);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+
+nav a svg {
+    margin-right: 5px;
+}
+
+nav .active {
+    background: rgb(178, 87, 54);
+    color: white;
+}
+
+nav a:hover {
+    background: rgb(178, 87, 54, o.2);
+}
+
+nav .active:hover {
+    background: rgb(178, 87, 54);
+    color: white;
+}

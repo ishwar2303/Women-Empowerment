@@ -1,9 +1,49 @@
 footer {
     background: rgb(33, 33, 33);
-    height: 400px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
+}
+
+footer > div {
+    flex: 1;
+    /* background: rgb(255, 255, 255); */
+    margin: 20px;
+    height: 100%;
+}
+
+footer > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer-navigations {
+    background: rgb(50, 50, 50);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.footer-navigations > a {
+    height: 100%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff88db;
+    text-decoration: none;
+}
+.footer-navigations > a:hover {
+    background: #ff82c9;
+    color: black;
+}
+
+.owned-by {
+    color: white;
+    padding: 20px;
 }

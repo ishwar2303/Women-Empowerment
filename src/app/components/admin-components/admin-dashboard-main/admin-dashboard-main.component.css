@@ -1,0 +1,10 @@
+.welcome-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.welcome-dashboard h1 {
+    font-size: 30px;
+}

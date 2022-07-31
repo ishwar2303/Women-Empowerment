@@ -1,0 +1,56 @@
+.guidelines {
+    display: flex;
+    padding-top: 10px;
+}
+
+.guidelines > div:first-child {
+    margin-right: 20px;
+}
+.guidelines > div {
+    flex: 1;
+    background: rgb(238, 244, 254);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.guidelines > div:last-child {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guidelines > div img {
+    width: 50%;
+}
+
+
+.guidelines-card > h3 {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 0;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.guidelines-card > p {
+    padding: 20px;
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.guidelines-details {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.guidelines-details p {
+    padding-top: 0px;
+    background: rgb(238, 244, 254);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.guidelines-details p:last-child {
+}

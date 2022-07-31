@@ -1,0 +1,58 @@
+.parent {
+    display: flex;
+    margin: 30px 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.head {
+    background-color: rgb(184, 184, 224, 0.3);
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+h1 svg {
+    margin-right: 10px;
+}
+
+.left {
+    flex: 1;
+}
+
+.right {
+    flex: 2;
+    margin-right: 10px;
+}
+
+.ques {
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 17px;
+    color: #821854;
+}
+
+.ans {
+    padding: 10px;
+    /* border-style:groove; */
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+.left {
+    padding: 20px;
+}
+
+img {
+    width: 90%;
+    /* border-style:groove; */
+    border-radius: 5px;
+}

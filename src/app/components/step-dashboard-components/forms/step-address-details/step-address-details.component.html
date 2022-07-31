@@ -1,16 +1,27 @@
 <h3>Address Details</h3>
-<form>
+<form [formGroup]="addressDetails" (submit)="saveAddressDetails()">
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Trainee Id</mat-label>
+                <input formControlName="TraineeId" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col"></div>
+    </div>
+    
     <div class="form-row">
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>State</mat-label>
-                <input matInput >
+                <input formControlName="State" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>City</mat-label>
-                <input matInput >
+                <input formControlName="City" matInput >
             </mat-form-field>
         </div>
     </div>
@@ -19,28 +30,13 @@
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>District</mat-label>
-                <input matInput >
+                <input formControlName="District" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Pincode</mat-label>
-                <input matInput >
-            </mat-form-field>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Husband Name</mat-label>
-                <input matInput >
-            </mat-form-field>
-        </div>
-        <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Number of Children</mat-label>
-                <input matInput >
+                <input formControlName="Pincode" matInput >
             </mat-form-field>
         </div>
     </div>
@@ -49,7 +45,7 @@
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Address</mat-label>
-                <textarea matInput ></textarea>
+                <textarea formControlName="Address" matInput ></textarea>
             </mat-form-field>
         </div>
     </div>
@@ -58,6 +54,4 @@
         <button mat-flat-button color="" type="reset">Reset</button>
         <button mat-flat-button color="primary" type="submit">Save</button>
     </div>
-
-
 </form>

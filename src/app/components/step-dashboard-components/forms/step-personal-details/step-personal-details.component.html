@@ -1,16 +1,27 @@
 <h3>Personal Details</h3>
-<form>
+<form [formGroup]="personalDetails" (submit)="savePersonalDetails()">
+
+    <div class="form-row">
+        <div class="form-col">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Trainee Id</mat-label>
+                <input formControlName="TraineeId" matInput >
+            </mat-form-field>
+        </div>
+        <div class="form-col"></div>
+    </div>
+
     <div class="form-row">
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>E-mail</mat-label>
-                <input matInput >
+                <input formControlName="EmailId" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Aadhaar</mat-label>
-                <input matInput >
+                <input maxlength="12" formControlName="Aadhaar" matInput >
             </mat-form-field>
         </div>
     </div>
@@ -19,14 +30,14 @@
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Pan</mat-label>
-                <input matInput >
+                <input formControlName="Pan" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
             <mat-form-field appearance="fill">
-                <mat-label>Martial Status</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let s of martialStatus" [value]="s">
+                <mat-label>Marital Status</mat-label>
+                <mat-select formControlName="MaritalStatus">
+                  <mat-option *ngFor="let s of MaritalStatus" [value]="s">
                     {{s}}
                   </mat-option>
                 </mat-select>
@@ -38,13 +49,13 @@
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Religion</mat-label>
-                <input matInput >
+                <input formControlName="Religion" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
             <mat-form-field appearance="fill">
               <mat-label>Category</mat-label>
-              <mat-select>
+              <mat-select formControlName="Category">
                 <mat-option *ngFor="let c of category" [value]="c">
                   {{c}}
                 </mat-option>
@@ -53,9 +64,27 @@
         </div>
     </div>
 
+    <div class="form-row">
+        <div class="form-col">
+            <section class="example-section">
+                <mat-checkbox class="example-margin" [checked]="true" formControlName="PersonWithDisability"  #pwd>Person with Disability</mat-checkbox>
+              </section>
+        </div>
+        <div class="form-col">
+            <mat-form-field *ngIf="pwd.checked" appearance="fill">
+              <mat-label>Type of Disability</mat-label>
+              <mat-select formControlName="DisabilityType">
+                <mat-option *ngFor="let d of disabilities" [value]="d">
+                  {{d}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
     <div fxLayout="row" fxLayoutAlign="space-between">
         <button mat-flat-button color="" type="reset">Reset</button>
-        <button mat-flat-button color="primary" type="submit">Save</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="personalDetails.invalid">Save</button>
     </div>
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TraineeService } from 'src/app/services/trainee/trainee.service';
 
 @Component({
   selector: 'step-dashboard',
@@ -10,15 +11,10 @@ export class StepDashboardComponent implements OnInit {
 
   navigation: boolean = true
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private traineeservice: TraineeService) { }
 
   ngOnInit(): void {
     this.toggleNavigation()
-
-    // check if user is login
-
-    // if not login
-    // this.router.navigate(['home', 'step'])
   }
 
   toggleNavigation(): void {
@@ -31,3 +27,5 @@ export class StepDashboardComponent implements OnInit {
     this.navigation = !this.navigation
   }
 }
+
+

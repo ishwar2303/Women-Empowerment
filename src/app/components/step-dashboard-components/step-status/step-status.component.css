@@ -1,0 +1,9 @@
+
+
+.app-status {
+    display: flex;
+    align-items: center;
+}
+.app-status svg {
+    margin-right: 5px;
+}

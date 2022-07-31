@@ -4,7 +4,7 @@ header {
     margin-bottom: 30px;
     height: 70px;
     position: fixed;
-    z-index: 10;
+    z-index: 20;
     width: 100%;
     top: 0;
     left: 0;
@@ -63,4 +63,55 @@ nav .active {
     background: rgb(244, 244, 244);
     color: #821854;
 }
+.dashboard-link-btn {
+    padding: 7px 15px;
+    border-radius: 7px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-link-btn svg {
+    margin-right: 5px;
+}
+.dashboard-links {
+    background: white;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    z-index: 10;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+.dashboard-links div {
+    display: flex;
+    flex-direction: column;
+}
 
+.dashboard-links div a {
+    color: #821854;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+}
+.dashboard-links div a svg {
+    margin-right: 5px;
+}
+
+.dashboard-links div a:hover {
+    background:#f6cdff;
+}
+
+.main-overlay {
+    position: absolute;
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9;
+}

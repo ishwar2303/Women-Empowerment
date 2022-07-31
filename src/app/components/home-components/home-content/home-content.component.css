@@ -1,9 +1,12 @@
-
 .main-banner {
     height: 80vh;
-    background-image: url('../../../../assets/images/women-empowerment.jpeg');
+    background-image: url('../../../../assets/images/wm.webp');
     position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
+
+
 .overlay {
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
@@ -16,7 +19,7 @@
     display: flex;
 }
 
-.overlay > div {
+.overlay>div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -31,4 +34,167 @@
 
 .overlay h2 {
     font-size: 50px;
+}
+
+blockquote::before {
+    content: open-quote;
+}
+
+blockquote::after {
+    content: close-quote;
+}
+
+blockquote {
+    quotes: "“""”""‘""’";
+}
+
+.main-head {
+    display: flex;
+    background: linear-gradient(168deg, #5c0436, #821854);
+    margin: 20px 50px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
+.subhead1 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 30px 40px;
+    margin: 20px;
+    background-color: rgb(223 223 223);
+    border-radius: 10px;
+}
+.subhead1 div:last-child {
+    flex: 1;
+}
+
+.subhead2 {
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+    padding: 30px 40px;
+    margin: 20px;
+    background-color: rgb(223 223 223);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.subhead2 div:last-child {
+    flex: 1;
+}
+
+
+.quote {
+    margin: 20px 50px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    color: #821854;
+    border-color: grey;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.content {
+    font-size: 17px;
+    text-align: center;
+}
+
+.pad {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.mandate {
+    background: #fef6f6;
+    padding: 20px 50px;
+    display: flex;
+}
+
+.mandate img {
+    height: 400px;
+    margin-right: 50px;
+}
+.mandate > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mandate h2 {
+    text-align: left;
+}
+.mandate-heading {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mandate > div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.mandate-desc {
+    padding: 0px 30px;
+}
+
+
+.main-banner > span  {
+    color: white;
+    z-index: 8;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.main-banner:hover > span  {
+    display: flex;
+}
+.main-banner > span:hover  {
+    background: rgba(0, 0, 0, 0.4);
+    
+}
+.main-banner .previous {
+    left: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.main-banner .next {
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.switch-banner {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    z-index: 8;
+}
+.switch-banner span {
+    width: 15px;
+    height: 15px;
+    background: white;
+    display: block;
+    border-radius: 50%;
+    margin: 0px 5px;
+}
+
+.switch-banner span:hover {
+    background: #5c0436;
 }

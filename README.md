@@ -5,9 +5,9 @@ Provide accommodation for working women, with day care facility for their childr
 
 ## Eligibility
 ### Working Women
-Priority on martial status: Single, Widowed, Divorced
+Priority on marital status: Single, Widowed, Divorced
 
-Priority to Women's whose husband or immediate family members doesn't reside in the same city.
+Priority to Women whose husband or immediate family members doesn't reside in the same city.
 
 Reservation of seats for physically challenged beneficiaries.
 

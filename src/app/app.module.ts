@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +41,22 @@ import { StepDashboardMainComponent } from './components/step-dashboard-componen
 import { StepPersonalDetailsComponent } from './components/step-dashboard-components/forms/step-personal-details/step-personal-details.component';
 import { StepFamilyDetailsComponent } from './components/step-dashboard-components/forms/step-family-details/step-family-details.component';
 import { StepAddressDetailsComponent } from './components/step-dashboard-components/forms/step-address-details/step-address-details.component';
+import { CriteriaComponent } from './components/ngo-dashboard-components/criteria/criteria.component';
+import { OrganizationsComponent } from './components/ngo-dashboard-components/organizations/organizations.component';
+import { FundingNormsComponent } from './components/ngo-dashboard-components/funding-norms/funding-norms.component';
+import { AdminNgosComponent } from './components/admin-components/admin-ngos/admin-ngos.component';
+import { AdminTraineesComponent } from './components/admin-components/admin-trainees/admin-trainees.component';
+import { AdminCoursesComponent } from './components/admin-components/admin-courses/admin-courses.component';
+import { NgosFaqComponent } from './components/ngo-dashboard-components/ngos-faq/ngos-faq.component';
+import { NgoStatusComponent } from './components/ngo-dashboard-components/ngo-status/ngo-status.component';
+import { NgoNavigationMenuComponent } from './components/ngo-dashboard-components/ngo-navigation-menu/ngo-navigation-menu.component';
+import { NgoDashboardMainComponent } from './components/ngo-dashboard-components/ngo-dashboard-main/ngo-dashboard-main.component';
+import { AdminDashboardMainComponent } from './components/admin-components/admin-dashboard-main/admin-dashboard-main.component';
+import { AdminNavigationMenuComponent } from './components/admin-components/admin-navigation-menu/admin-navigation-menu.component';
+import { NgoRegistrationComponent } from './components/ngo-dashboard-components/ngo-registration/ngo-registration.component';
+import { NgoOrganizationDetailsComponent } from './components/ngo-dashboard-components/forms/ngo-organization-details/ngo-organization-details.component';
+import { NgoContactDetailsComponent } from './components/ngo-dashboard-components/forms/ngo-contact-details/ngo-contact-details.component';
+import { NgoCoursesComponent } from './components/ngo-dashboard-components/forms/ngo-courses/ngo-courses.component';
 
 @NgModule({
   declarations: [
@@ -65,24 +84,42 @@ import { StepAddressDetailsComponent } from './components/step-dashboard-compone
     StepDashboardMainComponent,
     StepPersonalDetailsComponent,
     StepFamilyDetailsComponent,
-    StepAddressDetailsComponent
+    StepAddressDetailsComponent,
+    CriteriaComponent,
+    OrganizationsComponent,
+    FundingNormsComponent,
+    AdminNgosComponent,
+    AdminTraineesComponent,
+    AdminCoursesComponent,
+    NgosFaqComponent,
+    NgoStatusComponent,
+    NgoNavigationMenuComponent,
+    NgoDashboardMainComponent,
+    AdminDashboardMainComponent,
+    AdminNavigationMenuComponent,
+    NgoRegistrationComponent,
+    NgoOrganizationDetailsComponent,
+    NgoContactDetailsComponent,
+    NgoCoursesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     [FlexLayoutModule],
     MatButtonModule,
     MatCheckboxModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatButtonToggleModule,
     MatNativeDateModule,
     MatTableModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

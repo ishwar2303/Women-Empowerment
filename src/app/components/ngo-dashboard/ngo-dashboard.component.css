@@ -1,0 +1,71 @@
+.ngo-dashboard {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 50px;
+    background: rgb(178, 87, 54);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    color: white;
+    margin: 0;
+}
+
+
+.ngo-dashboard-body {
+    flex: 1;
+    display: flex;
+}
+
+.router-content-container {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.navigation-container {
+    background: white;
+    border-top-right-radius: 10px;
+}
+.router-content-container {
+    display: flex;
+    flex-direction: column;
+}
+.navigation-container .router-content {
+    flex: 1;
+}
+
+.router-content {
+    flex: 1;
+    background: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+footer {
+    margin-top: 20px;
+    background: rgb(44, 44, 44);
+    height: 40px;
+    border-top-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-style: italic;
+    color: rgb(232, 232, 232);
+}
+
+.toggle-navigation-btn {
+    background: none;
+    border: none;
+}
+
+.toggle-navigation-btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+}

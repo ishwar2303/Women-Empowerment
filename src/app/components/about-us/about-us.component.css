@@ -1,0 +1,20 @@
+.body{
+   padding: 50px;
+   padding-top:30px;
+   background-color:white;
+   font-size: 20px;
+   margin: 0px 50px;
+}
+.head{
+    background-color:rgb(184, 184, 224, 0.3);
+    border-radius: 5px;
+    padding-left:5px;
+    margin-top: 10px;
+    border-color: black;
+}
+.content{
+
+}
+h1 {
+    padding:10px 20px;
+}
