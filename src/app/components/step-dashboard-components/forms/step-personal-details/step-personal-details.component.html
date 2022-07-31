@@ -1,4 +1,8 @@
 <h3>Personal Details</h3>
+<error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+
+<success-message *ngIf="successMessage">{{successMessage}}</success-message>
+
 <form [formGroup]="personalDetails" (submit)="savePersonalDetails()">
 
     <div class="form-row">
@@ -104,7 +108,7 @@
         </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
         <div class="form-col">
             <section class="example-section">
                 <mat-checkbox class="example-margin" [checked]="true" formControlName="PersonWithDisability" #pwd>Person with Disability</mat-checkbox>
@@ -119,7 +123,7 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <div *ngIf="submitted && personalDetails.controls['DisabilityType'].invalid" class="form-error">
+            <div *ngIf="submitted && pwd.checked && personalDetails.controls['DisabilityType'].invalid" class="form-error">
                 <svg style="width:15px;height:15px" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
                 </svg>

@@ -13,12 +13,13 @@ export class StepPersonalDetailsComponent implements OnInit {
   // @ts-ignore
   personalDetails: FormGroup
 
+  errorMessage: string = ''
+  successMessage: string = ''
   submitted: boolean = false
 
   MaritalStatus: string[] = ['Single', 'Married', 'Divorced', 'Widowed']
   category: string[] = ['ST/SC', 'OBC', 'General']
   disabilities: string[] = ['vision Impairment', 'deaf or hard of hearing','mental health conditions', 'intellectual disability', 'acquired brain injury', 'autism spectrum disorder' ,'physical disability']
-
 
   constructor(private formBuilder: FormBuilder, private traineePersonalDetailsService: TraineePersonalDetailsService) { }
 
@@ -33,7 +34,7 @@ export class StepPersonalDetailsComponent implements OnInit {
       Religion: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
       Category: ['', [Validators.required]],
       PersonWithDisability: [''],
-      DisabilityType: ['', [Validators.required]]
+      DisabilityType: ['']
     })
   }
 
@@ -45,15 +46,22 @@ export class StepPersonalDetailsComponent implements OnInit {
 
   savePersonalDetails(): void {
     this.submitted = true
+    this.successMessage = ''
+    this.errorMessage = ''
     console.log(this.personalDetails)
     if(this.personalDetails.value.PersonWithDisability == "")
       this.personalDetails.value.PersonWithDisability = false
     console.log(this.personalDetails.value)
 
+    if(this.personalDetails.invalid)
+      return
+
     this.traineePersonalDetailsService.postPersonalDetails(this.personalDetails.value).subscribe((res) => {
-      console.log(res)
+      this.successMessage = res.success
+      this.personalDetails.reset()
+
     }, (err) => {
-      console.log(err)
+      this.errorMessage = err.error
     })
   }
 
