@@ -48,6 +48,7 @@ p {
 
 .form-row {
     display: flex;
+    margin-bottom: 20px;
 }
 .form-row .form-col {
     margin-right: 20px;

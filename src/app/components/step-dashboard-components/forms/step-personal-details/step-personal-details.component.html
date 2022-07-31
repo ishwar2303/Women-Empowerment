@@ -17,12 +17,26 @@
                 <mat-label>E-mail</mat-label>
                 <input formControlName="EmailId" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && personalDetails.controls['EmailId'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['EmailId'].errors!['required']">E-mail required</span>
+                <span *ngIf="personalDetails.controls['EmailId'].errors!['email']">Invalid E-mail</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Aadhaar</mat-label>
                 <input maxlength="12" formControlName="Aadhaar" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && personalDetails.controls['Aadhaar'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['Aadhaar'].errors!['required']">Aadhaar required</span>
+                <span *ngIf="personalDetails.controls['Aadhaar'].errors!['pattern']">Invalid Aadhaar Number, Contains 12 digits</span>
+            </div>
         </div>
     </div>
 
@@ -32,6 +46,7 @@
                 <mat-label>Pan</mat-label>
                 <input formControlName="Pan" matInput >
             </mat-form-field>
+            
         </div>
         <div class="form-col">
             <mat-form-field appearance="fill">
@@ -67,8 +82,8 @@
     <div class="form-row">
         <div class="form-col">
             <section class="example-section">
-                <mat-checkbox class="example-margin" [checked]="true" formControlName="PersonWithDisability"  #pwd>Person with Disability</mat-checkbox>
-              </section>
+                <mat-checkbox class="example-margin" [checked]="true" formControlName="PersonWithDisability" #pwd>Person with Disability</mat-checkbox>
+            </section>
         </div>
         <div class="form-col">
             <mat-form-field *ngIf="pwd.checked" appearance="fill">
@@ -84,7 +99,7 @@
 
     <div fxLayout="row" fxLayoutAlign="space-between">
         <button mat-flat-button color="" type="reset">Reset</button>
-        <button mat-flat-button color="primary" type="submit" [disabled]="personalDetails.invalid">Save</button>
+        <button mat-flat-button color="primary" type="submit" >Save</button>
     </div>
 
 

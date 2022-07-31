@@ -13,6 +13,8 @@ export class StepPersonalDetailsComponent implements OnInit {
   // @ts-ignore
   personalDetails: FormGroup
 
+  submitted: boolean = false
+
   MaritalStatus: string[] = ['Single', 'Married', 'Divorced', 'Widowed']
   category: string[] = ['ST/SC', 'OBC', 'General']
   disabilities: string[] = ['vision Impairment', 'deaf or hard of hearing','mental health conditions', 'intellectual disability', 'acquired brain injury', 'autism spectrum disorder' ,'physical disability']
@@ -23,12 +25,12 @@ export class StepPersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getPersonalDetails()
     this.personalDetails = this.formBuilder.group({
-      TraineeId: ['1', [Validators.required]],
+      TraineeId: ['1', [Validators.required, Validators.pattern('[0-9]+')]],
       EmailId: ['', [Validators.required, Validators.email]],
-      Aadhaar: ['', [Validators.required]],
-      Pan: ['', [Validators.required]],
+      Aadhaar: ['', [Validators.required, Validators.pattern('[0-9]{12}')]],
+      Pan: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{10}')]],
       MaritalStatus: ['', [Validators.required]],
-      Religion: ['', [Validators.required]],
+      Religion: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
       Category: ['', [Validators.required]],
       PersonWithDisability: [''],
       DisabilityType: ['']
@@ -42,12 +44,16 @@ export class StepPersonalDetailsComponent implements OnInit {
   }
 
   savePersonalDetails(): void {
+    this.submitted = true
+    console.log(this.personalDetails)
     if(this.personalDetails.value.PersonWithDisability == "")
       this.personalDetails.value.PersonWithDisability = false
     console.log(this.personalDetails.value)
 
-    this.traineePersonalDetailsService.postPersonalDetails(this.personalDetails.value).subscribe((d) => {
-      console.log(d)
+    this.traineePersonalDetailsService.postPersonalDetails(this.personalDetails.value).subscribe((res) => {
+      console.log(res)
+    }, (err) => {
+      console.log(err)
     })
   }
 
