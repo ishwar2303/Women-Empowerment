@@ -1,6 +1,6 @@
 export interface NgoOrganizationDetails {
-    NgoId: string
-    OrganizationName: string
+    NgoId: number
+    OrganisationName: string
     ChairmanName: string
     Pan: string
     SecretaryName: string

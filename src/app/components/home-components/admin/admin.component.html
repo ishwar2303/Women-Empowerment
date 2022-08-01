@@ -3,17 +3,25 @@
         <form [formGroup]="adminRegister" (submit)="register()" class="step-login-form">
             <h1 fxLayout="row" fxLayoutAlign="center center">
                 <svg style="width:24px;height:24px;margin-right:10px;" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
+                    <path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
                 </svg>
                 <span>Admin Registration</span>
             </h1>
+            <success-message *ngIf="registerSuccessMessage">{{registerSuccessMessage}}</success-message>
+            <error-message *ngIf="registerErrorMessage">{{registerErrorMessage}}</error-message> 
             <div class="form-row">
                 <div class="form-col">
                     <mat-form-field appearance="fill">
                         <mat-label>Username</mat-label>
                         <input type="text" formControlName="Username" matInput>
                     </mat-form-field>
+                    <div *ngIf="adminRegisterSubmitted && adminRegister.controls['Username'].invalid" class="form-error">
+                        <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                        </svg>
+                        <span *ngIf="adminRegister.controls['Username'].errors!['required']">Username required</span>
+                        <span *ngIf="adminRegister.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 8</span>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
@@ -26,7 +34,7 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between">
                 <button mat-flat-button type="reset">Reset</button>
-                <button mat-flat-button color="primary" type="submit" [disabled]="adminRegister.invalid">Register</button>
+                <button mat-flat-button color="primary" type="submit" >Register</button>
             </div>
         </form>
     </div>
@@ -34,17 +42,25 @@
         <form [formGroup]="adminLogin" (submit)="login()" class="step-login-form">
             <h1 fxLayout="row" fxLayoutAlign="center center">
                 <svg style="width:24px;height:24px;margin-right:10px;" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
+                    <path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z" />
                 </svg>
                 <span>Admin Login</span>
             </h1>
+            <error-message *ngIf="loginErrorMessage">{{loginErrorMessage}}</error-message> 
             <div class="form-row">
                 <div class="form-col">
                     <mat-form-field appearance="fill">
                         <mat-label>Username</mat-label>
                         <input type="text" formControlName="Username" matInput>
                     </mat-form-field>
+
+                    <div *ngIf="adminLoginSubmitted && adminLogin.controls['Username'].invalid" class="form-error">
+                        <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                        </svg>
+                        <span *ngIf="adminLogin.controls['Username'].errors!['required']">Username required</span>
+                        <span *ngIf="adminLogin.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 8</span>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
@@ -57,7 +73,7 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between">
                 <button mat-flat-button type="reset">Reset</button>
-                <button mat-flat-button color="primary" type="submit" [disabled]="adminLogin.invalid">Login</button>
+                <button mat-flat-button color="primary" type="submit" >Login</button>
             </div>
         </form>
     </div>

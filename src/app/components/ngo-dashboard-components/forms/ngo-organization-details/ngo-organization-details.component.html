@@ -1,7 +1,7 @@
-<h3>Organization Details</h3>
 <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
 
 <success-message *ngIf="successMessage">{{successMessage}}</success-message>
+<h3>Organization Details</h3>
 <form [formGroup]="organizationDetails" (submit)="saveOrganizationDetails()">
 
     <div class="form-row">
@@ -18,7 +18,7 @@
         <div class="form-col">
             <mat-form-field  appearance="fill">
                 <mat-label>Organization Name</mat-label>
-                <input formControlName="OrganizationName" matInput >
+                <input formControlName="OrganisationName" matInput >
             </mat-form-field>
         </div>
     </div>

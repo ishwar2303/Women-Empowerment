@@ -66,7 +66,7 @@ export class StepPersonalDetailsComponent implements OnInit {
       this.successMessage = res.success
 
     }, (err) => {
-      this.errorMessage = err.error
+      this.errorMessage = err.error.error
     })
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgoApplicationService } from 'src/app/services/ngo-details/ngo-application.service';
 
 @Component({
   selector: 'app-ngo-registration',
@@ -8,15 +9,26 @@ import { Router } from '@angular/router';
 })
 export class NgoRegistrationComponent implements OnInit {
 
+  ngoId: number = Number(localStorage.getItem('NgoId'))
+  
+  successMessage: string = ''
+  errorMessage: string = ''
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ngoApplicationService: NgoApplicationService) { }
 
   ngOnInit(): void {
     this.router.navigate(['ngo', 'registration', 'ngo-organization-details'])
   }
+  
+
   sendApplication(): void {
-    // this.traineeApplicationService.postApplication({}).subscribe((d) => {
-    //   console.log(d)
-    // })
+    this.errorMessage = ''
+    this.successMessage = ''
+    this.ngoApplicationService.postApplication(this.ngoId).subscribe((res) => {
+      this.successMessage = res.success
+    }, (err) => {
+      this.errorMessage = err.error.error
+    })
   }
+
 }

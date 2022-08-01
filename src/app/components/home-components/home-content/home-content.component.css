@@ -1,8 +1,8 @@
 .main-banner {
-    height: 80vh;
+    height: 83vh;
     background-image: url('../../../../assets/images/wm.webp');
     position: relative;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 

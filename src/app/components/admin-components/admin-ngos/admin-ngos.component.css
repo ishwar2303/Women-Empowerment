@@ -1,0 +1,13 @@
+
+
+.app-status {
+    display: flex;
+    align-items: center;
+}
+.app-status svg {
+    margin-right: 5px;
+}
+.btn-container button {
+    margin-left: 10px;
+}
+

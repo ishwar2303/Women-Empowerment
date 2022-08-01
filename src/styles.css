@@ -283,3 +283,8 @@ th, td {
 .mat-flat-button.mat-primary {
     background: #5c6bc3;
 }
+
+.mat-flat-button.mat-success {
+    background: #308946;
+    color: white;
+}

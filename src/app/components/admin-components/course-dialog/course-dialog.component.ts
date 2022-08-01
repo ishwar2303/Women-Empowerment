@@ -41,7 +41,6 @@ export class CourseDialogComponent implements OnInit {
 
     this.courseService.addCourse(this.courseForm.value).subscribe((res) => {
       this.successMessage = res.success
-      this.courseForm.reset()
       this.submitted = false
       this.fetchCourses()
     }, (err) => {

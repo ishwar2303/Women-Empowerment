@@ -15,9 +15,10 @@ export class HomeContentComponent implements OnInit {
   bannerAutoSwitchInterval: any
 
   bannerImages = [
-    '../../../../assets/images/wm.webp', 
-    '../../../../assets/images/women-empowerment.jpeg',
-    '../../../../assets/images/women-empowerment.webp']
+    '../../../../assets/images/w5.png',
+    '../../../../assets/images/w1.png',
+    '../../../../assets/images/w2.jpeg'
+  ]
 
   constructor() { }
 

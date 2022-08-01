@@ -11,10 +11,19 @@ export class AdminDashboardComponent implements OnInit {
 
   navigation: boolean = false
 
+  logoutState: boolean = false
+  
+  // @ts-ignore
+  Username: string = localStorage.getItem('AdminUsername')
+
   constructor(private router: Router) { }
 
-
   ngOnInit(): void {
+    if(localStorage.getItem('AdminId') == null) {
+      this.router.navigate(['home', 'admin'])
+      return
+    }
+
     this.toggleNavigation()
   }
 
@@ -26,5 +35,15 @@ export class AdminDashboardComponent implements OnInit {
 
     document.head.appendChild(style)
     this.navigation = !this.navigation
+  }
+
+  toggleLogout = () => {
+    this.logoutState = !this.logoutState
+  }
+
+  logout = () => {
+    localStorage.removeItem('AdminId')
+    localStorage.removeItem('AdminUsername')
+    this.router.navigate(['home', 'admin'])
   }
 }

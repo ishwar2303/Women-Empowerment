@@ -1,0 +1,99 @@
+<div class="application-dialog">
+    <h1 class="flex-row jc-sb ai-c">
+        <span class="form-heading"> 
+            <span>Application</span>
+        </span>
+        <span class="close-dialog-icon" (click)="closeApplication()">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+        </span>
+    </h1>
+    <div>
+        <div class="section">
+            <h3>Personal Details</h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Aadhaar</th>
+                            <th>Pan</th>
+                            <th>Category</th>
+                            <th>Religion</th>
+                            <th>Marital Status</th>
+                            <th>Dsiability</th>
+                            <th>Disability Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of application.traineePersonalDetails">
+                            <td>{{c.emailId}}</td>
+                            <td>{{c.aadhaar}}</td>
+                            <td>{{c.pan}}</td>
+                            <td>{{c.category}}</td>
+                            <td>{{c.religion}}</td>
+                            <td>{{c.maritalStatus}}</td>
+                            <td>{{c.disability == "" ? "No" : "Yes"}}</td>
+                            <td>{{c.disabilityType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Family Details</h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mother Name</th>
+                            <th>Mother Designation</th>
+                            <th>Father Name</th>
+                            <th>Father Designation</th>
+                            <th>Husband Name</th>
+                            <th>Number of Children</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of application.traineeFamilyDetails">
+                            <td>{{c.motherName}}</td>
+                            <td>{{c.motherDesignation}}</td>
+                            <td>{{c.fatherName}}</td>
+                            <td>{{c.fatherDesignation}}</td>
+                            <td>{{c.husbandName}}</td>
+                            <td>{{c.numberOfChildren}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Contact Details</h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>District</th>
+                            <th>Pincode</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of application.traineeAddressDetails">
+                            <td>{{c.state}}</td>
+                            <td>{{c.city}}</td>
+                            <td>{{c.district}}</td>
+                            <td>{{c.pincode}}</td>
+                            <td>{{c.address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
