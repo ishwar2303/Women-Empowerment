@@ -2,12 +2,59 @@
 
     <step-dashboard-content-header>
         <div>Courses</div>
-        <div></div>
+        <div class="btn-container">
+            <button mat-flat-button color="primary" (click)="showDialog()">Add</button>
+            <button *ngIf="courses.length > 0" mat-flat-button color="accent" (click)="showEditDialog()" [disabled]="editCourseButton">Edit</button>
+            <button *ngIf="courses.length > 0" mat-flat-button color="warn" [disabled]="deleteCourseButton" (click)="showDeleteDialog()">Delete</button>
+        </div>
     </step-dashboard-content-header>
     
     <div class="dashboard-content">
         <div>
+            <!-- Content Here -->
+            <success-message *ngIf="successMessage">{{successMessage}}</success-message>
+            <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+            <error-message *ngIf="courses.length == 0">No Courses exist in our records</error-message>
+            <div class="all-courses" *ngIf="courses.length > 0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">
+                            </th>
+                            <th>Serial No</th>
+                            <th>Course Name</th>
+                            <th>Course Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of courses; let i = index;">
+                            <td>
+                                <mat-radio-button class="course-radio" value="{{c.courseId}}" (change)="onRadioChange(c.courseId)"></mat-radio-button>
+                            </td>
+                            <td>{{i + 1}}</td>
+                            <td class="course-name">{{c.code}}</td>
+                            <td>{{c.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    
+    <!-- Dialog Here -->
+    <course-dialog 
+        *ngIf="courseDialogState"
+        [hideNewCourseDialog]="hideDialog"
+        [fetchCourses]="fetchCourses"
+    ></course-dialog>
+    <edit-course-dialog
+        *ngIf="editCourseDialogState"
+        [selectedCourseId]="selectedCourseId"
+        [hideEditCourseDialog]="hideEditDialog"
+        [fetchCourses]="fetchCourses"
+    ></edit-course-dialog>
+    <delete-course-confirmation-dialog
+        *ngIf="deleteCourseDialogState"
+        [hideDeleteDialog]="hideDeleteDialog"
+        [deleteCourse]="deleteCourse"
+    ></delete-course-confirmation-dialog>
 </div>

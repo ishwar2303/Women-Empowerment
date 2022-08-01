@@ -15,14 +15,17 @@ export class TraineeApplicationService {
     })
   }
 
-
   constructor(private httpClient: HttpClient) { }
 
-  postApplication(data: any): Observable<any> {
-    return this.httpClient.post<any>(this.baseURL + 'Request', data, this.httpOptions)
+  postApplication(traineeId: number): Observable<any> {
+    return this.httpClient.get<any>(this.baseURL + 'Request/' + traineeId, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   getApplication(id: number): Observable<any> {
     return this.httpClient.get<any>(this.baseURL + 'Get/' + id)
+  }
+
+  handleError(err: HttpErrorResponse) {
+    return throwError(err)
   }
 }

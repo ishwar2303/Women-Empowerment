@@ -9,19 +9,24 @@ import { TraineeFamilyDetailsService } from 'src/app/services/trainee-details/tr
 })
 export class StepFamilyDetailsComponent implements OnInit {
 
+  traineeId: number = Number(localStorage.getItem('TraineeId'))
+
   // @ts-ignore
   familyDetails: FormGroup
+  errorMessage:string=''
+  successMessage: string = ''
+  submitted: boolean = false
 
   constructor(private formBuilder: FormBuilder, private traineeFamilyDetailsService: TraineeFamilyDetailsService) { }
 
   ngOnInit(): void {
     this.getFamilyDetails()
     this.familyDetails = this.formBuilder.group({
-      TraineeId: ['1', [Validators.required]],
-      MotherName:['', [Validators.required]],
-      MotherDesignation:['', [Validators.required]],
-      FatherName:['', [Validators.required]],
-      FatherDesignation:['', [Validators.required]],
+      TraineeId: [this.traineeId, [Validators.required, Validators.pattern('[0-9]+')]],
+      MotherName:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      MotherDesignation:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      FatherName:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      FatherDesignation:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
       HusbandName:[''],
       NumberOfChildren:['']
     })
@@ -35,10 +40,17 @@ export class StepFamilyDetailsComponent implements OnInit {
   }
 
   saveFamilyDetails(): void {
+    this.submitted=true;
+    this.successMessage = ''
+    this.errorMessage = ''
+    
     console.log(this.familyDetails.value)
-
-    this.traineeFamilyDetailsService.postFamilyDetails(this.familyDetails.value).subscribe((d) => {
-      console.log(d)
+    if(this.familyDetails.invalid)
+      return
+    this.traineeFamilyDetailsService.postFamilyDetails(this.familyDetails.value).subscribe((res) => {
+      this.successMessage=res.success;
+    }, (err) => {
+      this.errorMessage=err.error
     })
   }
 

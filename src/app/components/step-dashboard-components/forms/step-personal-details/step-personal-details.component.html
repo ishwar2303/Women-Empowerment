@@ -1,9 +1,13 @@
+<error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+
+<success-message *ngIf="successMessage">{{successMessage}}</success-message>
 <h3>Personal Details</h3>
+
 <form [formGroup]="personalDetails" (submit)="savePersonalDetails()">
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Trainee Id</mat-label>
                 <input formControlName="TraineeId" matInput >
             </mat-form-field>
@@ -13,7 +17,7 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>E-mail</mat-label>
                 <input formControlName="EmailId" matInput >
             </mat-form-field>
@@ -26,7 +30,7 @@
             </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Aadhaar</mat-label>
                 <input maxlength="12" formControlName="Aadhaar" matInput >
             </mat-form-field>
@@ -42,11 +46,17 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Pan</mat-label>
                 <input formControlName="Pan" matInput >
             </mat-form-field>
-            
+            <div *ngIf="submitted && personalDetails.controls['Pan'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['Pan'].errors!['required']">PAN required</span>
+                <span *ngIf="personalDetails.controls['Pan'].errors!['pattern']">Invalid PAN</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field appearance="fill">
@@ -57,15 +67,28 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+              <div *ngIf="submitted && personalDetails.controls['MaritalStatus'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['MaritalStatus'].errors!['required']">Marital status required</span>
+            </div>
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Religion</mat-label>
                 <input formControlName="Religion" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && personalDetails.controls['Religion'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['Religion'].errors!['required']">Religion required</span>
+                <span *ngIf="personalDetails.controls['Religion'].errors!['pattern']">Invalid Religion</span>
+            </div>
         </div>
         <div class="form-col">
             <mat-form-field appearance="fill">
@@ -76,10 +99,16 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
+            <div *ngIf="submitted && personalDetails.controls['Category'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['Category'].errors!['required']">Category required</span>
+            </div>
         </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
         <div class="form-col">
             <section class="example-section">
                 <mat-checkbox class="example-margin" [checked]="true" formControlName="PersonWithDisability" #pwd>Person with Disability</mat-checkbox>
@@ -94,6 +123,12 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
+            <div *ngIf="submitted && pwd.checked && personalDetails.controls['DisabilityType'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="personalDetails.controls['DisabilityType'].errors!['required']">Disability type required</span>
+            </div>
         </div>
     </div>
 

@@ -1,9 +1,13 @@
+<error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+
+<success-message *ngIf="successMessage">{{successMessage}}</success-message>
+
 <h3>Address Details</h3>
 <form [formGroup]="addressDetails" (submit)="saveAddressDetails()">
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Trainee Id</mat-label>
                 <input formControlName="TraineeId" matInput >
             </mat-form-field>
@@ -13,40 +17,75 @@
     
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>State</mat-label>
                 <input formControlName="State" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && addressDetails.controls['State'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="addressDetails.controls['State'].errors!['required']">State required</span>
+                <span *ngIf="addressDetails.controls['State'].errors!['pattern']">Invalid State</span>
+            </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>City</mat-label>
                 <input formControlName="City" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && addressDetails.controls['City'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="addressDetails.controls['City'].errors!['required']">City required</span>
+                <span *ngIf="addressDetails.controls['City'].errors!['pattern']">Invalid City</span>
+            </div>
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>District</mat-label>
                 <input formControlName="District" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && addressDetails.controls['District'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="addressDetails.controls['District'].errors!['required']">District required</span>
+                <span *ngIf="addressDetails.controls['District'].errors!['pattern']">Invalid District</span>
+            </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Pincode</mat-label>
                 <input formControlName="Pincode" matInput >
             </mat-form-field>
+            <div *ngIf="submitted && addressDetails.controls['Pincode'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="addressDetails.controls['Pincode'].errors!['required']">PIN Code required</span>
+                <span *ngIf="addressDetails.controls['Pincode'].errors!['pattern']">Invalid PIN Code</span>
+            </div>
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Address</mat-label>
                 <textarea formControlName="Address" matInput ></textarea>
             </mat-form-field>
+            <div *ngIf="submitted && addressDetails.controls['Address'].invalid" class="form-error">
+                <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                </svg>
+                <span *ngIf="addressDetails.controls['Address'].errors!['required']">Address required</span>
+                <span *ngIf="addressDetails.controls['Address'].errors!['pattern']">Invalid Address</span>
+            </div>
         </div>
     </div>
 

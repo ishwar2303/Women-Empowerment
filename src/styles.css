@@ -48,7 +48,7 @@ p {
 
 .form-row {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .form-row .form-col {
     margin-right: 20px;
@@ -86,6 +86,10 @@ p {
     margin-left: 10px;
 }
 
+.mr-10 {
+    margin-right: 10px;
+}
+
 .pb-20 {
     padding-bottom: 20px;
 }
@@ -119,6 +123,7 @@ p {
     padding: 10px 20px;
     overflow: auto;
     flex:1;
+    position: relative;
 }
 
 .dashboard-content > div {
@@ -129,6 +134,7 @@ p {
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
 }
 
 .route-content-wrapper > div:last-child {
@@ -229,4 +235,51 @@ th, td {
     padding: 10px;
 
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+.success-message {
+    padding: 10px;
+    color: green;
+    background: rgba(0, 255, 0, 0.1);
+    border: 0.5px solid green;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.error-message {
+    padding: 7px;
+    color: red;
+    background: rgba(255, 0, 0, 0.1);
+    border: 0.5px solid red;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.success-message svg,
+.error-message svg {
+    margin-right: 5px;
+}
+
+.success-message svg {
+    color: green;
+}
+
+.error-message svg {
+    color: red;
+}
+
+.mat-flat-button.mat-warn {
+    background: #ca4238;
+}
+
+.mat-flat-button.mat-accent {
+    background: #d34575;
+}
+
+.mat-flat-button.mat-primary {
+    background: #5c6bc3;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TraineePersonalDetails } from 'src/app/models/trainee/trainee-personal-details';
 import { TraineePersonalDetailsService } from 'src/app/services/trainee-details/trainee-personal-details.service';
 
 @Component({
@@ -10,22 +11,28 @@ import { TraineePersonalDetailsService } from 'src/app/services/trainee-details/
 
 export class StepPersonalDetailsComponent implements OnInit {
 
+  traineeId: number = Number(localStorage.getItem('TraineeId'))
+
+  // @ts-ignore
+  traineePersonalDetails: TraineePersonalDetails
+
   // @ts-ignore
   personalDetails: FormGroup
 
+  errorMessage: string = ''
+  successMessage: string = ''
   submitted: boolean = false
 
   MaritalStatus: string[] = ['Single', 'Married', 'Divorced', 'Widowed']
   category: string[] = ['ST/SC', 'OBC', 'General']
   disabilities: string[] = ['vision Impairment', 'deaf or hard of hearing','mental health conditions', 'intellectual disability', 'acquired brain injury', 'autism spectrum disorder' ,'physical disability']
 
-
   constructor(private formBuilder: FormBuilder, private traineePersonalDetailsService: TraineePersonalDetailsService) { }
 
   ngOnInit(): void {
     this.getPersonalDetails()
     this.personalDetails = this.formBuilder.group({
-      TraineeId: ['1', [Validators.required, Validators.pattern('[0-9]+')]],
+      TraineeId: [this.traineeId, [Validators.required, Validators.pattern('[0-9]+')]],
       EmailId: ['', [Validators.required, Validators.email]],
       Aadhaar: ['', [Validators.required, Validators.pattern('[0-9]{12}')]],
       Pan: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{10}')]],
@@ -38,22 +45,28 @@ export class StepPersonalDetailsComponent implements OnInit {
   }
 
   getPersonalDetails(): void {
-    this.traineePersonalDetailsService.getPersonalDetails(1).subscribe((d) => {
-      console.log(d)
+    this.traineePersonalDetailsService.getPersonalDetails(this.traineeId).subscribe((res) => {
+      
     })
   }
 
   savePersonalDetails(): void {
     this.submitted = true
+    this.successMessage = ''
+    this.errorMessage = ''
     console.log(this.personalDetails)
     if(this.personalDetails.value.PersonWithDisability == "")
       this.personalDetails.value.PersonWithDisability = false
     console.log(this.personalDetails.value)
 
+    if(this.personalDetails.invalid)
+      return
+
     this.traineePersonalDetailsService.postPersonalDetails(this.personalDetails.value).subscribe((res) => {
-      console.log(res)
+      this.successMessage = res.success
+
     }, (err) => {
-      console.log(err)
+      this.errorMessage = err.error
     })
   }
 

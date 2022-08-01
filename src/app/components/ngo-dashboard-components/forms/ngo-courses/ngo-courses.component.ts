@@ -8,13 +8,17 @@ import { CourseService } from 'src/app/services/courses/course.service';
 })
 export class NgoCoursesComponent implements OnInit {
 
+  traineeId: number = Number(localStorage.getItem('NgoId'))
+  
   courses: any[] = []
 
   constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
-    this.courseService.getCourses().subscribe((d) => {
-      this.courses = d
+    this.courseService.getCourses().subscribe((res) => {
+      this.courses = res.data
+    }, (err) => {
+      alert(err.error.error)
     })
   }
 

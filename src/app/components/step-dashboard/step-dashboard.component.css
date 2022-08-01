@@ -69,3 +69,7 @@ footer {
 .toggle-navigation-btn:hover {
     background: rgba(0, 0, 0, 0.3);
 }
+
+.logged-in-user {
+    position: relative;
+}

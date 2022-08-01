@@ -9,11 +9,24 @@ import { TraineeService } from 'src/app/services/trainee/trainee.service';
 })
 export class StepDashboardComponent implements OnInit {
 
-  navigation: boolean = true
+  navigation: boolean = false
 
-  constructor(private router: Router, private traineeservice: TraineeService) { }
+  constructor(private router: Router) { }
+
+  logoutState: boolean = false
+
+  // @ts-ignore
+  FullName: string = localStorage.getItem('TraineeFullName')
+
+  // @ts-ignore
+  Username: string = localStorage.getItem('TraineeUsername')
 
   ngOnInit(): void {
+    if(localStorage.getItem('TraineeId') == null) {
+      this.router.navigate(['home', 'step'])
+      return
+    }
+
     this.toggleNavigation()
   }
 
@@ -26,6 +39,18 @@ export class StepDashboardComponent implements OnInit {
     document.head.appendChild(style)
     this.navigation = !this.navigation
   }
+
+  toggleLogout = () => {
+    this.logoutState = !this.logoutState
+  }
+
+  logout = () => {
+    localStorage.removeItem('TraineeId')
+    localStorage.removeItem('TraineeUsername')
+    localStorage.removeItem('TraineeFullName')
+    this.router.navigate(['home', 'step'])
+  }
+
 }
 
 

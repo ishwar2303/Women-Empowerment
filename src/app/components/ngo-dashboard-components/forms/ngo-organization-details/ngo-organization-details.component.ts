@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgoOrganizationDetailsService } from 'src/app/services/ngo-details/ngo-organization-details.service';
 
 @Component({
   selector: 'app-ngo-organization-details',
@@ -8,20 +9,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NgoOrganizationDetailsComponent implements OnInit {
 
+  ngoId: number = Number(localStorage.getItem('NgoId'))
+
   // @ts-ignore
   organizationDetails: FormGroup
+  errorMessage:string=''
+  successMessage: string = ''
+  submitted: boolean = false
 
-  MaritalStatus: string[] = ['Single', 'Married', 'Divorced', 'Widowed']
-  category: string[] = ['ST/SC', 'OBC', 'General']
-  disabilities: string[] = ['vision Impairment', 'deaf or hard of hearing','mental health conditions', 'intellectual disability', 'acquired brain injury', 'autism spectrum disorder' ,'physical disability']
-
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private ngoOrganizationDetailsService: NgoOrganizationDetailsService) { }
 
   ngOnInit(): void {
     this.getOrganizationDetails()
     this.organizationDetails = this.formBuilder.group({
-      NgoId: ['1', [Validators.required]],
+      NgoId: [this.ngoId, [Validators.required]],
       OrganizationName: ['', [Validators.required]],
       ChairmanName: ['', [Validators.required]],
       Pan: ['', [Validators.required]],
@@ -31,10 +32,24 @@ export class NgoOrganizationDetailsComponent implements OnInit {
   }
 
   getOrganizationDetails(): void {
+    this.ngoOrganizationDetailsService.getOrganizationDetails(this.ngoId).subscribe((d) => {
+      console.log(d)
+    })
   }
 
   saveOrganizationDetails(): void {
+    this.submitted=true;
+    this.successMessage = ''
+    this.errorMessage = ''
     console.log(this.organizationDetails.value)
+    if(this.organizationDetails.invalid)
+      return
+    this.ngoOrganizationDetailsService.postOrganizationDetails(this.organizationDetails.value).subscribe((res) => {
+      this.successMessage=res.success;
+      this.organizationDetails.reset()
+    }, (err) => {
+      this.errorMessage=err.error
+    })
   }
 
 }

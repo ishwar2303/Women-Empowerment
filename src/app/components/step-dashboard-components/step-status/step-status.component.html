@@ -7,7 +7,8 @@
     
     <div class="dashboard-content">
         <div>
-            <table>
+            <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+            <table *ngIf="applicationStatus != null">
                 <thead>
                     <tr>
                         <th>Request Date</th>

@@ -9,7 +9,10 @@ import { TraineeApplicationService } from 'src/app/services/trainee-details/trai
 })
 export class StepStatusComponent implements OnInit {
 
-  applicationStatus: any
+  traineeId: number = Number(localStorage.getItem('TraineeId'))
+
+  errorMessage:string = ''
+  applicationStatus: any = null
 
   constructor(private router: Router, private traineeApplicationService: TraineeApplicationService) { }
 
@@ -18,9 +21,11 @@ export class StepStatusComponent implements OnInit {
   }
 
   getApplicationStatus(): void {
-    this.traineeApplicationService.getApplication(1).subscribe((d) => {
-      console.log(d)
-      this.applicationStatus = d
+    this.traineeApplicationService.getApplication(this.traineeId).subscribe((res) => {
+      this.applicationStatus = res.data
+      this.applicationStatus.requestDate = (new Date(res.data.requestDate)).toLocaleDateString().replace (/\//g, '-')
+    }, (err) => {
+      this.errorMessage = err.error.error
     })
   }
   

@@ -71,10 +71,8 @@ const routes: Routes = [
       {path: 'guidelines', component: GuidelinesComponent},
       {path: 'training-sectors', component: TrainingSectorsComponent},
       {path: 'ngos', component: NgosComponent},
-      {path: 'funding-norms', component: FundingNormsComponent},
-      {path: 'registration', component: NgoRegistrationComponent},
-      {path: 'faq', component: NgosFaqComponent},
-      {path: 'status', component: NgoStatusComponent}
+      {path: 'faq', component: StepFaqComponent},
+      {path: 'status', component: StepStatusComponent}
     ]
   },
 

@@ -29,6 +29,8 @@
     
     <div class="dashboard-content">
         <div>
+            <success-message *ngIf="successMessage">{{successMessage}}</success-message>
+            <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
             <router-outlet></router-outlet>
         </div>
     </div>

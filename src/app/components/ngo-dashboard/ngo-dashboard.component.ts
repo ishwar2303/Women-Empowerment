@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgoService } from 'src/app/services/ngo/ngo.service';
 
 @Component({
   selector: 'ngo-dashboard',
@@ -8,12 +9,22 @@ import { Router } from '@angular/router';
 })
 export class NgoDashboardComponent implements OnInit {
 
-  navigation: boolean = true
+  navigation: boolean = false
 
+  logoutState: boolean = false
+  
+  // @ts-ignore
+  Username: string = localStorage.getItem('NgoUsername')
+  
   constructor(private router: Router) { }
 
 
   ngOnInit(): void {
+    if(localStorage.getItem('NgoId') == null) {
+      this.router.navigate(['home', 'ngo'])
+      return
+    }
+
     this.toggleNavigation()
   }
 
@@ -26,4 +37,15 @@ export class NgoDashboardComponent implements OnInit {
     document.head.appendChild(style)
     this.navigation = !this.navigation
   }
+
+  toggleLogout = () => {
+    this.logoutState = !this.logoutState
+  }
+
+  logout = () => {
+    localStorage.removeItem('NgoId')
+    localStorage.removeItem('NgoUsername')
+    this.router.navigate(['home', 'ngo'])
+  }
+
 }

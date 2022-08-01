@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AdminDashboardComponent implements OnInit {
 
 
-  navigation: boolean = true
+  navigation: boolean = false
 
   constructor(private router: Router) { }
 

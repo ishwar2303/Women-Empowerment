@@ -1,0 +1,33 @@
+.left_image{
+    padding-top:5px;
+    padding-left:5px;
+    flex:0.5;
+    align-items:center;
+    display: flex;
+}
+img {
+    width: 100%;
+    border-radius: 5px;
+    margin: 10px;
+}
+.right{
+    flex:7;
+    padding: 10px;
+    padding-left: 20px;
+    padding-top:20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color:white;
+}
+.inline{
+    display:flex;
+    border:solid 1px;
+    border-radius: 10px;
+    border-bottom: grey solid 5px;
+    border-right: grey solid 5px;;
+    background: rgb(75, 75, 75);
+}
+.space{
+    padding-top:10px;
+}
