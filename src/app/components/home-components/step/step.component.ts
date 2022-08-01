@@ -38,7 +38,7 @@ export class StepComponent implements OnInit {
       FullName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]{3,30}')]],
       Username: ['',[Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
       DateOfBirth: ['', Validators.required],
-      Contact: ['', [Validators.required, Validators.pattern('[789][0-9]{9}')]],
+      Mobile: ['', [Validators.required, Validators.pattern('[789][0-9]{9}')]],
       Password: ['', [Validators.required]],
       ConfirmPassword: ['', [Validators.required]]
     })
@@ -62,6 +62,8 @@ export class StepComponent implements OnInit {
       this.stepRegister.reset();
       this.stepRegisterSubmitted = false
       this.registerSuccessMessage = res.success
+      console.log(res)
+      localStorage.setItem('TraineeId', res.data.traineeId)
     }, (err) => {
       this.stepRegisterSubmitted = false
       this.registerErrorMessage = err

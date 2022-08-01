@@ -1,13 +1,13 @@
-<h3>Personal Details</h3>
 <error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
 
 <success-message *ngIf="successMessage">{{successMessage}}</success-message>
+<h3>Personal Details</h3>
 
 <form [formGroup]="personalDetails" (submit)="savePersonalDetails()">
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Trainee Id</mat-label>
                 <input formControlName="TraineeId" matInput >
             </mat-form-field>
@@ -17,7 +17,7 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>E-mail</mat-label>
                 <input formControlName="EmailId" matInput >
             </mat-form-field>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Aadhaar</mat-label>
                 <input maxlength="12" formControlName="Aadhaar" matInput >
             </mat-form-field>
@@ -46,7 +46,7 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Pan</mat-label>
                 <input formControlName="Pan" matInput >
             </mat-form-field>
@@ -78,7 +78,7 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Religion</mat-label>
                 <input formControlName="Religion" matInput >
             </mat-form-field>

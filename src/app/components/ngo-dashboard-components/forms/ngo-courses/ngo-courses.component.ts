@@ -13,8 +13,10 @@ export class NgoCoursesComponent implements OnInit {
   constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
-    this.courseService.getCourses().subscribe((d) => {
-      this.courses = d
+    this.courseService.getCourses().subscribe((res) => {
+      this.courses = res.data
+    }, (err) => {
+      alert(err.error.error)
     })
   }
 

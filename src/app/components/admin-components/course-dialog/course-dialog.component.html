@@ -1,0 +1,57 @@
+<div class="course-dialog">
+    <h3 class="flex-row jc-sb ai-c">
+        <span class="form-heading"> 
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+            </svg>
+            <span>Add Course</span>
+        </span>
+        <span class="close-dialog-icon" (click)="hideNewCourseDialog()">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+        </span>
+    </h3>
+    <success-message *ngIf="successMessage">{{successMessage}}</success-message>
+    <success-message *ngIf="errorMessage">{{errorMessage}}</success-message>
+    <form [formGroup]="courseForm" (submit)="saveCourseDetails()">
+    
+        <div class="form-row">
+            <div class="form-col">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Code</mat-label>
+                    <input formControlName="Code" matInput >
+                </mat-form-field>
+                <div *ngIf="submitted && courseForm.controls['Code'].invalid" class="form-error">
+                    <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                    </svg>
+                    <span *ngIf="courseForm.controls['Code'].errors!['required']">Code required</span>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="form-row">
+            <div class="form-col">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <textarea formControlName="Description" matInput ></textarea>
+                </mat-form-field>
+                <div *ngIf="submitted && courseForm.controls['Description'].invalid" class="form-error">
+                    <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                    </svg>
+                    <span *ngIf="courseForm.controls['Description'].errors!['required']">Description required</span>
+                </div>
+            </div>
+        </div>
+    
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <button mat-flat-button color="" type="reset">Reset</button>
+            <button mat-flat-button color="primary" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+
+<div class="overlay"></div>

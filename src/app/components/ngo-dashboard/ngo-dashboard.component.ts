@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NgoDashboardComponent implements OnInit {
 
-  navigation: boolean = true
+  navigation: boolean = false
 
   constructor(private router: Router) { }
 

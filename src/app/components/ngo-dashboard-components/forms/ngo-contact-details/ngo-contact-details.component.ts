@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgoContactDetailsService } from 'src/app/services/ngo-details/ngo-contact-details.service';
 
 @Component({
   selector: 'app-ngo-contact-details',
@@ -10,8 +11,11 @@ export class NgoContactDetailsComponent implements OnInit {
 
   // @ts-ignore
   contactDetails: FormGroup
+  errorMessage:string=''
+  successMessage: string = ''
+  submitted: boolean = false
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private ngoContactDetailsService: NgoContactDetailsService) { }
 
   ngOnInit(): void {
     this.getContactDetails()
@@ -27,10 +31,23 @@ export class NgoContactDetailsComponent implements OnInit {
   }
 
   getContactDetails(): void {
-
+    this.ngoContactDetailsService.getContactDetails(1).subscribe((d) => {
+      console.log(d)
+    })
   }
 
   saveContactDetails(): void {
-    // console.log(this.addressDetails.value)
+    this.submitted=true;
+    this.successMessage = ''
+    this.errorMessage = ''
+    console.log(this.contactDetails.value)
+    if(this.contactDetails.invalid)
+      return
+    this.ngoContactDetailsService.postContactDetails(this.contactDetails.value).subscribe((res) => {
+      this.successMessage=res.success;
+      this.contactDetails.reset()
+    }, (err) => {
+      this.errorMessage=err.error
+    })
   }
 }

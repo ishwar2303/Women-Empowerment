@@ -1,9 +1,13 @@
+
+<error-message *ngIf="errorMessage">{{errorMessage}}</error-message>
+
+<success-message *ngIf="successMessage">{{successMessage}}</success-message>
 <h3>Family Details</h3>
 <form [formGroup]="familyDetails" (submit)="saveFamilyDetails()">
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Trainee Id</mat-label>
                 <input formControlName="TraineeId" matInput >
             </mat-form-field>
@@ -13,7 +17,7 @@
     
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Mother Name</mat-label>
                 <input formControlName="MotherName" matInput >
             </mat-form-field>
@@ -26,7 +30,7 @@
             </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Mother Designation</mat-label>
                 <input formControlName="MotherDesignation" matInput >
             </mat-form-field>
@@ -42,7 +46,7 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Father Name</mat-label>
                 <input formControlName="FatherName" matInput >
             </mat-form-field>
@@ -55,7 +59,7 @@
             </div>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Father Designation</mat-label>
                 <input formControlName="FatherDesignation" matInput >
             </mat-form-field>
@@ -71,13 +75,13 @@
 
     <div class="form-row">
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Husband Name</mat-label>
                 <input formControlName="HusbandName" matInput >
             </mat-form-field>
         </div>
         <div class="form-col">
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field  appearance="fill">
                 <mat-label>Number of Children</mat-label>
                 <input formControlName="NumberOfChildren" matInput >
             </mat-form-field>

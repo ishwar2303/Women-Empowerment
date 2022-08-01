@@ -19,7 +19,7 @@
             </div>
             <div class="form-row">
                 <div class="form-col">
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-form-field  appearance="fill">
                         <mat-label>Password</mat-label>
                         <input type="password" formControlName="Password" matInput >
                     </mat-form-field>
@@ -93,14 +93,14 @@
                 <div class="form-col">
                     <mat-form-field appearance="fill">
                         <mat-label>Contact</mat-label>
-                        <input type="number" formControlName="Contact" matInput>
+                        <input type="number" formControlName="Mobile" matInput>
                     </mat-form-field>
-                    <div *ngIf="stepRegisterSubmitted && stepRegister.controls['Contact'].invalid" class="form-error">
+                    <div *ngIf="stepRegisterSubmitted && stepRegister.controls['Mobile'].invalid" class="form-error">
                         <svg style="width:15px;height:15px" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
                         </svg>
-                        <span *ngIf="stepRegister.controls['Contact'].errors!['required']">Contact required</span>
-                        <span *ngIf="stepRegister.controls['Contact'].errors!['pattern']">Invalid Contact</span>
+                        <span *ngIf="stepRegister.controls['Mobile'].errors!['required']">Contact required</span>
+                        <span *ngIf="stepRegister.controls['Mobile'].errors!['pattern']">Invalid Contact</span>
                     </div>
                 </div>
             </div>

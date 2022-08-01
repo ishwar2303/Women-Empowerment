@@ -12,7 +12,7 @@
                     <h3>{{course[0].code}}</h3>
                     <p>{{course[0].description}}</p>
                 </div>
-                <div class="course-card">
+                <div class="course-card" *ngIf="course[1].code">
                     <h3>{{course[1].code}}</h3>
                     <p>{{course[1].description}}</p>
                 </div>

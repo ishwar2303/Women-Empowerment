@@ -86,6 +86,10 @@ p {
     margin-left: 10px;
 }
 
+.mr-10 {
+    margin-right: 10px;
+}
+
 .pb-20 {
     padding-bottom: 20px;
 }
@@ -119,6 +123,7 @@ p {
     padding: 10px 20px;
     overflow: auto;
     flex:1;
+    position: relative;
 }
 
 .dashboard-content > div {
@@ -129,6 +134,7 @@ p {
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
 }
 
 .route-content-wrapper > div:last-child {
@@ -264,4 +270,16 @@ th, td {
 
 .error-message svg {
     color: red;
+}
+
+.mat-flat-button.mat-warn {
+    background: #ca4238;
+}
+
+.mat-flat-button.mat-accent {
+    background: #d34575;
+}
+
+.mat-flat-button.mat-primary {
+    background: #5c6bc3;
 }

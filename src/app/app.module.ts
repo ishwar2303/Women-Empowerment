@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
+import {MatRadioModule} from '@angular/material/radio';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +60,9 @@ import { NgoContactDetailsComponent } from './components/ngo-dashboard-component
 import { NgoCoursesComponent } from './components/ngo-dashboard-components/forms/ngo-courses/ngo-courses.component';
 import { ErrorMessageComponent } from './components/utility/error-message/error-message.component';
 import { SuccessMessageComponent } from './components/utility/success-message/success-message.component';
+import { CourseDialogComponent } from './components/admin-components/course-dialog/course-dialog.component';
+import { EditCourseDialogComponent } from './components/admin-components/edit-course-dialog/edit-course-dialog.component';
+import { DeleteCourseConfirmationDialogComponent } from './components/admin-components/delete-course-confirmation-dialog/delete-course-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +108,10 @@ import { SuccessMessageComponent } from './components/utility/success-message/su
     NgoContactDetailsComponent,
     NgoCoursesComponent,
     ErrorMessageComponent,
-    SuccessMessageComponent
+    SuccessMessageComponent,
+    CourseDialogComponent,
+    EditCourseDialogComponent,
+    DeleteCourseConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +128,8 @@ import { SuccessMessageComponent } from './components/utility/success-message/su
     MatButtonToggleModule,
     MatNativeDateModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

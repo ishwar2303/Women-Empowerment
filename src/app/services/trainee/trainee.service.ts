@@ -26,8 +26,8 @@ export class TraineeService {
     return this.httpClient.post<Trainee>(this.baseURL + 'register', data, this.httpOptions).pipe(catchError(this.handleError))
   }
 
-  handleError(error:HttpErrorResponse){
-    return throwError(error.error.error)
+  handleError(err:HttpErrorResponse){
+    return throwError(err)
   }
 
 }

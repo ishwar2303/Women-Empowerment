@@ -16,7 +16,10 @@ export class TrainingSectorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseService.getCourses().subscribe((d) => {
-      let c = d
+    })
+
+    this.courseService.getCourses().subscribe((res) => {
+      let c = res.data
       for(let i=0; i<c.length; i+=2) {
         let arr = []
         arr.push(c[i])
@@ -25,6 +28,8 @@ export class TrainingSectorsComponent implements OnInit {
         
         this.courses.push(arr)
       }
+    }, (err) => {
+      alert(err.error.error)
     })
   }
 

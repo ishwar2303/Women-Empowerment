@@ -9,9 +9,12 @@ import { TraineeAddressDetailsService } from 'src/app/services/trainee-details/t
 })
 export class StepAddressDetailsComponent implements OnInit {
 
+  traineeId: number = Number(localStorage.getItem('TraineeId'))
+
   // @ts-ignore
   addressDetails: FormGroup
-
+  errorMessage:string=''
+  successMessage: string = ''
   submitted: boolean = false
 
   constructor(private formBuilder: FormBuilder, private traineeAddressDetailsService: TraineeAddressDetailsService) { }
@@ -19,12 +22,12 @@ export class StepAddressDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getAddressDetails()
     this.addressDetails = this.formBuilder.group({
-      TraineeId: ['1', [Validators.required, Validators.pattern('[0-9]+')]],
+      TraineeId: [this.traineeId, [Validators.required, Validators.pattern('[0-9]+')]],
       State:['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
       City:['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
-      District:['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
+      District:['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
       Pincode:['', [Validators.required, Validators.pattern('[0-9]{6}')]],
-      Address:['', [Validators.required, Validators.pattern('[a-zA-Z0-9,]+')]]
+      Address:['', [Validators.required, Validators.pattern('[a-zA-Z0-9,-/ ]+')]]
     })
   }
 
@@ -36,10 +39,15 @@ export class StepAddressDetailsComponent implements OnInit {
 
   saveAddressDetails(): void {
     this.submitted=true;
+    this.successMessage = ''
+    this.errorMessage = ''
     console.log(this.addressDetails.value)
-
-    this.traineeAddressDetailsService.postAddressDetails(this.addressDetails.value).subscribe((d) => {
-      console.log(d)
+    if(this.addressDetails.invalid)
+      return
+    this.traineeAddressDetailsService.postAddressDetails(this.addressDetails.value).subscribe((res) => {
+      this.successMessage=res.success;
+    }, (err) => {
+      this.errorMessage=err.error
     })
   }
 }

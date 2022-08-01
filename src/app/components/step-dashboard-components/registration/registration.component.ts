@@ -9,16 +9,24 @@ import { TraineeApplicationService } from 'src/app/services/trainee-details/trai
 })
 export class RegistrationComponent implements OnInit {
 
+  traineeId: number = Number(localStorage.getItem('TraineeId'))
+  
+  successMessage: string = ''
+  errorMessage: string = ''
+
   constructor(private router: Router, private traineeApplicationService: TraineeApplicationService) { }
 
   ngOnInit(): void {
     this.router.navigate(['step', 'registration', 'trainee-personal-details'])
   }
 
-
   sendApplication(): void {
-    this.traineeApplicationService.postApplication({}).subscribe((d) => {
-      console.log(d)
+    this.errorMessage = ''
+    this.successMessage = ''
+    this.traineeApplicationService.postApplication(this.traineeId).subscribe((res) => {
+      this.successMessage = res.success
+    }, (err) => {
+      this.errorMessage = err.error.error
     })
   }
 

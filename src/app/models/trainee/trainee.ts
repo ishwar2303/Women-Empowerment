@@ -1,7 +1,7 @@
 export interface Trainee {
     traineeId: number
     confirmPassword: string
-    contact: string
+    mobile: string
     dateOfBirth: string
     fullName: string
     password: string

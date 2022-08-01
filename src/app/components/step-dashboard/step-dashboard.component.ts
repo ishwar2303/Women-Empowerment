@@ -9,7 +9,7 @@ import { TraineeService } from 'src/app/services/trainee/trainee.service';
 })
 export class StepDashboardComponent implements OnInit {
 
-  navigation: boolean = true
+  navigation: boolean = false
 
   constructor(private router: Router, private traineeservice: TraineeService) { }
 
