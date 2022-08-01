@@ -14,6 +14,8 @@ export class StepComponent implements OnInit {
   // @ts-ignore
   stepLogin: FormGroup
   loginErrorMessage: string = ''
+  stepLoginSubmitted: boolean = false
+
 
   // @ts-ignore
   trainee: Trainee
@@ -29,7 +31,7 @@ export class StepComponent implements OnInit {
   ngOnInit(): void {
     // initialize step login form
     this.stepLogin = this.formBuilder.group({
-      Username: ['', [Validators.required]],
+      Username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
       Password: ['', [Validators.required]]
     })
 
@@ -45,6 +47,7 @@ export class StepComponent implements OnInit {
   }
 
   login(): void {
+    this.stepLoginSubmitted=true;
     console.log(this.stepLogin.value)
   }
 

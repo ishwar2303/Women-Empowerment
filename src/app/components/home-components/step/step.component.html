@@ -15,20 +15,34 @@
                         <mat-label>Username</mat-label>
                         <input type="text" formControlName="Username" matInput >
                     </mat-form-field>
+                    <div *ngIf="stepLoginSubmitted && stepLogin.controls['Username'].invalid" class="form-error">
+                        <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                        </svg>
+                        <span *ngIf="stepLogin.controls['Username'].errors!['required']">Username required</span>
+                        <span *ngIf="stepLogin.controls['Username'].errors!['pattern']">Username should only contain alphabets and digits, mimium length 6</span>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-col">
                     <mat-form-field  appearance="fill">
                         <mat-label>Password</mat-label>
-                        <input type="password" formControlName="Password" matInput >
+                        <input type="password" formControlName="Password" input minlength="8" matInput #password>
                     </mat-form-field>
+                    <div *ngIf="stepLoginSubmitted && stepLogin.controls['Password'].invalid" class="form-error">
+                        <svg style="width:15px;height:15px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M10 3H14V14H10V3M10 21V17H14V21H10Z" />
+                        </svg>
+                        <span *ngIf="stepLogin.controls['Password'].errors!['required']">Password required</span>
+                        <span *ngIf="password.value != '' && password.value.length < 8">Password should contain atleast 8 characters</span>
+                    </div>
                 </div>
             </div>
             <div style="color: red;" *ngIf="loginErrorMessage != ''">{{loginErrorMessage}}</div>
             <div fxLayout="row" fxLayoutAlign="space-between">
                 <button mat-flat-button  type="reset">Reset</button>
-                <button mat-flat-button color="primary" type="submit" [disabled]="stepLogin.invalid">Login</button>
+                <button mat-flat-button color="primary" type="submit" [disabled]="false">Login</button>
             </div>
           </form>
     </div>
