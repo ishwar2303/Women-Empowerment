@@ -28,6 +28,10 @@ export class StepComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(localStorage.getItem('TraineeId') != null) {
+      this.router.navigate(['step', 'dashboard'])
+      return
+    }
     // initialize step login form
     this.stepLogin = this.formBuilder.group({
       Username: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{8,30}')]],
@@ -46,11 +50,6 @@ export class StepComponent implements OnInit {
   }
 
   login(): void {
-
-    if(localStorage.getItem('TraineeId') != null) {
-      this.router.navigate(['step', 'dashboard'])
-      return
-    }
 
     this.loginErrorMessage = ''
     if(this.stepLogin.invalid)
