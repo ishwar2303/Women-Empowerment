@@ -23,11 +23,11 @@ export class NgoOrganizationDetailsComponent implements OnInit {
     this.getOrganizationDetails()
     this.organizationDetails = this.formBuilder.group({
       NgoId: [this.ngoId, [Validators.required]],
-      OrganisationName: ['', [Validators.required]],
-      ChairmanName: ['', [Validators.required]],
-      Pan: ['', [Validators.required]],
-      SecretaryName: ['', [Validators.required]],
-      Website: ['', [Validators.required]]
+      OrganisationName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      ChairmanName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      Pan: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{10}')]],
+      SecretaryName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]+')]],
+      Website: ['', [Validators.pattern('((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)')]]
     })
   }
 
@@ -47,7 +47,7 @@ export class NgoOrganizationDetailsComponent implements OnInit {
     this.ngoOrganizationDetailsService.postOrganizationDetails(this.organizationDetails.value).subscribe((res) => {
       this.successMessage=res.success;
     }, (err) => {
-      this.errorMessage=err.error
+      this.errorMessage=err.error.error
     })
   }
 
